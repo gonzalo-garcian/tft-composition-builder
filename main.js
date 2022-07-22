@@ -5,8 +5,14 @@ function onDragStart(event) {
   
     event
       .currentTarget
-      .style
-      .backgroundColor = 'yellow';
+      .classList.add('item-hex');
+
+      /* TODO: Make transparent on drag. If its not dropped on the 
+      grid it turns back to be a visible square. */
+
+      /* TODO: onDrag shape the image as a hexagon. ATENTION: not 
+      On DragStart. When you drag the image that kind of ghost copy
+      It will be shaped hexagonal. The original image stays as a square.*/
 
     console.log('DRAG WORKS!')
   }
@@ -30,5 +36,3 @@ function onDragStart(event) {
     .dataTransfer
     .clearData();
   }
-
-  /* TODO: onDrag shape the image as a hexagon */

@@ -5,6 +5,8 @@ h1 {
 .grid {
     position: relative;
     margin: 0 auto;
+    width: 55%;
+    min-width: 613.2px;
 }
 
 .hex {
@@ -19,3 +21,7 @@ h1 {
     background: rgba(0, 238, 255, 0.507);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
+
+  .grid .hex:nth-child(7n+2), .grid .hex:nth-child(7n+4), .grid .hex:nth-child(7n+6) { 
+    margin: 0 1%;
+}

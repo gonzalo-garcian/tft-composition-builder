@@ -1,12 +1,13 @@
 h1 {
     text-align: center;
 }
+main{
+    display: flex;
+}
 
+/*TODO: fix the container's position */
 .grid {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    width: 80%;
+
     min-width: 650px;
     max-width: 650px;
     
@@ -21,7 +22,7 @@ h1 {
         - https://en.wikipedia.org/wiki/Hexagon */
     width: 86.6px; /* = height * 0.866*/
     height: 100px;
-    background: rgba(0, 238, 255, 0.507);
+    background: green;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
@@ -37,11 +38,9 @@ h1 {
     transform: translate(55%);
 }
 
+/* TODO: class item */
 .item {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    margin-top: 35px;
+
 }
 
 .item-hex {
@@ -49,4 +48,13 @@ h1 {
     width: 86.6px; /* = height * 0.866*/
     height: 100px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* TODO: pieces class */
+.pieces {
+    margin: auto;
+    margin-left: 5%;
+    width: 80%;
+    height: 250px;
+    background-color: greenyellow;
 }

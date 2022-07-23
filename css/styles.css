@@ -42,6 +42,13 @@ main > div {
     font-size: 30px;
 }
 
+#pieces > img {
+    height: 80px;
+    width: 80px;
+}
+
+/* Hexagonal hell */
+
 .hex {
     position: relative;
     float: left;

@@ -1,16 +1,45 @@
-h1 {
-    text-align: center;
-}
-main{
-    display: flex;
-}
+
 
 /*TODO: fix the container's position */
-.grid {
 
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header, footer {
+    text-align: center;
+}
+
+#synergies { grid-area: synergies; }
+#grid { 
+    grid-area: grid; 
     min-width: 650px;
     max-width: 650px;
+}
+#pieces { grid-area: pieces;}
+
+main {
+
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
+    grid-template-areas: 
+    'synergies grid'
+    'synergies pieces';
     
+    gap: 10px;
+    background-color: aquamarine;
+}
+
+main > div {
+    background-color: rgba(248, 196, 196, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
 
 .hex {
@@ -26,35 +55,21 @@ main{
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
-.grid .hex:nth-child(7n+2), .grid .hex:nth-child(7n+4), .grid .hex:nth-child(7n+6) { 
+#grid .hex:nth-child(7n+2), #grid .hex:nth-child(7n+4), #grid .hex:nth-child(7n+6) { 
     margin: 0 1%;
 }
 
-.grid .hex:nth-child(14n+8), .grid .hex:nth-child(14n+9),.grid .hex:nth-child(14n+10),
-.grid .hex:nth-child(14n+11), .grid .hex:nth-child(14n+12), .grid .hex:nth-child(14n+13),
-.grid .hex:nth-child(14n+14) {
+#grid .hex:nth-child(14n+8), #grid .hex:nth-child(14n+9), #grid .hex:nth-child(14n+10),
+#grid .hex:nth-child(14n+11), #grid .hex:nth-child(14n+12), #grid .hex:nth-child(14n+13),
+#grid .hex:nth-child(14n+14) {
     margin-top: -3%;
     margin-bottom: -3%;
     transform: translate(55%);
 }
 
-/* TODO: class item */
-.item {
-
-}
-
 .item-hex {
     margin: 0 auto;
-    width: 86.6px; /* = height * 0.866*/
+    width: 86.6px; /* = height * 0.866 */
     height: 100px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-/* TODO: pieces class */
-.pieces {
-    margin: auto;
-    margin-left: 5%;
-    width: 80%;
-    height: 250px;
-    background-color: greenyellow;
 }

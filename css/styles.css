@@ -12,13 +12,19 @@ header, footer {
     text-align: center;
 }
 
-#synergies { grid-area: synergies; }
+#synergies { 
+    grid-area: synergies;
+    background-color: hotpink;
+}
 #grid { 
     grid-area: grid; 
     min-width: 650px;
     max-width: 650px;
 }
-#pieces { grid-area: pieces;}
+#pieces { 
+    grid-area: pieces;
+    background-color: hotpink;
+}
 
 main {
 
@@ -32,11 +38,11 @@ main {
     'synergies pieces';
     
     gap: 10px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 main > div {
-    background-color: rgba(248, 196, 196, 0.8);
+    /* background-color: rgba(248, 196, 196, 0.8); */
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
@@ -58,7 +64,7 @@ main > div {
         - https://en.wikipedia.org/wiki/Hexagon */
     width: 86.6px; /* = height * 0.866*/
     height: 100px;
-    background: green;
+    background: hotpink;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 

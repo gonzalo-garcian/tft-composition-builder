@@ -1,5 +1,5 @@
 var globalCounter = 0;
-var synergies = ["Astral", "Guild"];
+var synergies = [];
 
 function onDragStart(event) {
     event
@@ -13,32 +13,31 @@ function onDragStart(event) {
 
   function onDrop(event) {
 
-    const id = event
+      const id = event
       .dataTransfer
       .getData('text');
-
-      var draggableElement = document.getElementById(id);
-      if(draggableElement.parentElement.id == 'pieces'){
-        draggableElement = document.getElementById(id).cloneNode(true);
-        draggableElement.id = "item-cloned" + globalCounter;
-        globalCounter++;
-      }
-      draggableElement.classList.add('item-hex');
-
       const dropzone = event.target;
-      dropzone.appendChild(draggableElement);
+      if(dropzone.classList[0] == "hex" && !dropzone.hasChildNodes()){
+        var draggableElement = document.getElementById(id);
+        if(draggableElement.parentElement.id == 'pieces'){
+          draggableElement = document.getElementById(id).cloneNode(true);
+          draggableElement.id = "item-cloned" + globalCounter;
+          globalCounter++;
+        }
+        draggableElement.classList.add('item-hex');
+        dropzone.appendChild(draggableElement);
+      }
 
       event
-    .dataTransfer
-    .clearData();
+      .dataTransfer
+      .clearData();
+    
   }
 
   /*TODO: Look up if there is a better way to select the father*/
   function onContextMenu(event){
     event.preventDefault();
-    const hexagon = event.target.parentElement;
-    if(hexagon.id != "grid"){
-      hexagon.removeChild(hexagon.firstElementChild)
-      console.log("Right click!");
+    if(event.target.id != "grid" && event.target.parentElement.id != "grid"){
+      event.target.remove();
     }
   }

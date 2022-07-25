@@ -1,11 +1,13 @@
 var globalCounter = 0;
-var synergies = [];
+var actualSynergies = {};
+var actualPieces = [];
 var data = {
   "Aatrox": {
     name: "Aatrox",
-    synergies: ["Guild, Astral"]
+    synergies: ["Guild", "Astral"]
   }
 }
+
 function onDragStart(event) {
     event
       .dataTransfer
@@ -14,6 +16,16 @@ function onDragStart(event) {
 
   function onDragOver(event) {
     event.preventDefault();
+  }
+
+  function checkDictionary(synergy){
+    
+      if(synergy in actualSynergies){
+        actualSynergies[synergy] = actualSynergies[synergy] + 1
+      }
+      else{
+        actualSynergies[synergy] = 1
+      }
   }
 
   function onDrop(event) {
@@ -27,13 +39,30 @@ function onDragStart(event) {
         var draggableElement = document.getElementById(id);
         if(draggableElement.parentElement.id == 'pieces'){
 
+          
           /* TODO: function to control the synergies */
-          synergies.push(data[draggableElement.id]["synergies"])
-          synergies.forEach(element => {
-            const li = document.createElement("li");
-            li.innerHTML = "element";
-            document.getElementById("synergies").appendChild(li);
-          });
+          if(!actualPieces.includes(draggableElement.id)){
+
+            actualPieces.push(draggableElement.id);
+
+            data[draggableElement.id]["synergies"].forEach(synergy => {
+              
+                checkDictionary(synergy);
+                console.log(actualSynergies)
+              
+            });
+
+            var synergiesList = document.getElementById('synergies-list');
+            synergiesList.innerHTML = "";
+            Object.keys(actualSynergies).forEach(function(key) {
+              var auxListItem = document.createElement('li');
+              auxListItem.innerHTML =  key + "=> " + actualSynergies[key];
+              synergiesList.appendChild(auxListItem);
+            });
+          }
+
+          
+          
           /*---------------------------------------- */
           draggableElement = document.getElementById(id).cloneNode(true);
           draggableElement.id = "item-cloned" + globalCounter;
@@ -53,6 +82,6 @@ function onDragStart(event) {
     event.preventDefault();
     if(event.target.id != "grid" && event.target.parentElement.id != "grid"){
       event.target.remove();
-      synergies.pop()
+      actualSynergies.pop();
     }
   }

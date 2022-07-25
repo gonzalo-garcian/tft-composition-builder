@@ -15,6 +15,7 @@ header, footer {
 #synergies { 
     grid-area: synergies;
     background-color: hotpink;
+    min-width: 200px;
 }
 #grid { 
     grid-area: grid; 
